@@ -1,4 +1,4 @@
-package conch3;
+package conch3.server;
 
 public class ConchServer {
   public static void main(String[] args) {
