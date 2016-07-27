@@ -3,12 +3,10 @@ package conch3.server;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
-//import com.example.helloworld.resources.HelloWorldResource;
-//import com.example.helloworld.health.TemplateHealthCheck;
 
-public class HelloConchApplication extends Application<HelloConchConfig> {
+public class ConchApplication extends Application<ConchConfig> {
   public static void main(String[] args) throws Exception {
-    new HelloConchApplication().run(args);
+    new ConchApplication().run(args);
   }
 
   @Override
@@ -17,20 +15,20 @@ public class HelloConchApplication extends Application<HelloConchConfig> {
   }
 
   @Override
-  public void initialize(Bootstrap<HelloConchConfig> bootstrap) {
+  public void initialize(Bootstrap<ConchConfig> bootstrap) {
     // nothing to do yet
   }
 
   @Override
-  public void run(HelloConchConfig configuration,
+  public void run(ConchConfig configuration,
                   Environment environment) {
-	  final HelloConchResource resource = new HelloConchResource(
-		        configuration.getTemplate(),
-		        configuration.getDefaultName()
-			  );
+	  final ConchResource main = new ConchResource(
+			  configuration.getTemplate(),
+			  configuration.getDefaultReply());
+	  
 	  final TemplateHealthCheck healthCheck =
 		        new TemplateHealthCheck(configuration.getTemplate());
 	  environment.healthChecks().register("template", healthCheck);
-	  environment.jersey().register(resource);
+	  environment.jersey().register(main);	  
   }
 }
