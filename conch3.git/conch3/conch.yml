@@ -1,0 +1,2 @@
+template: "%s"
+defaultReply: "Please use '/conch?command=help' to list available operations."
