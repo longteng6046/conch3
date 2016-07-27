@@ -4,12 +4,12 @@ import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
 
-public class HelloConchConfig extends Configuration {
+public class ConchConfig extends Configuration {
     @NotEmpty
     private String template;
-
+    
     @NotEmpty
-    private String defaultName;
+    private String defaultReply;
 
     @JsonProperty
     public String getTemplate() {
@@ -22,12 +22,12 @@ public class HelloConchConfig extends Configuration {
     }
 
     @JsonProperty
-    public String getDefaultName() {
-        return defaultName;
-    }
+	public String getDefaultReply() {
+		return defaultReply;
+	}
 
     @JsonProperty
-    public void setDefaultName(String name) {
-        this.defaultName = name;
-    }
+	public void setDefaultReply(String defaultReply) {
+		this.defaultReply = defaultReply;
+	}    
 }
