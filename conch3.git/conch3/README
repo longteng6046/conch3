@@ -1,6 +1,48 @@
- Created: 5/2/2016
- Author: Teng Long(tlongcn@gmail.com)
- This is Conch 3: A data sharing service for collaborative testing.
+This instruction explains how to checkout a version of conch3 server from github 
+into Eclipse, build the jar file using maven, run the server, and check it is 
+working through a web browser.
+
+Recommended Environment
+
+* Eclipse 4.4 Luna or higher
+* Java 1.5 or higher
+
+Step 1: Clone project from github
+
+* For read-only access (no push to github):
+  git clone https://github.com/longteng6046/conch3.git
+  
+* For read and write access, please contact mbrfail@gmail.com
+
+Step 2: Import into Eclipse
+
+Eclipse - File - Import - General - Existing Projects into Workspace - Browse
+ - <your cloned directory> - Finish
  
- Update: 6/28/2016
- Basic WebService framework established. 
+Step 3: Build conch3
+
+Right click on pom.xml, then click Run As - Maven build, build the "package" 
+goal.
+
+Maven will finish downloading and building all fields, and succeed by the end.
+
+Step 4: Run conch:
+
+java -jar target/conch3-*.jar server conch.yml
+
+Step 5: Verify the running service
+
+Go to any Web browser, type：
+
+localhost:8080/conch
+
+You should see the Json content with help information.
+
+type:
+
+localhost:8080/conch?command=anything
+
+You should have Json reply saying that things are to be implemented.
+
+
+
