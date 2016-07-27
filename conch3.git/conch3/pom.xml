@@ -61,7 +61,7 @@
             <transformers>
               <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
               <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                <mainClass>conch3.server.HelloConchApplication</mainClass>
+                <mainClass>conch3.server.ConchApplication</mainClass>
               </transformer>
             </transformers>
           </configuration>
